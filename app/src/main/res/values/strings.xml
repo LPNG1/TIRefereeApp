@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">TIRefApp</string>
+    <string name="refIntro">Which referee are you?</string>
+    <string name="red1">Red Referee\n1</string>
+    <string name="red2">Red Referee\n2</string>
+    <string name="blue1">Blue Referee\n1</string>
+    <string name="blue2">Blue Referee\n2</string>
+    <string name="gameTime">Game Time: 0:00</string>
+    <string name="anchors">Anchors: 0/2</string>
+    <string name="gameState">Autonomous</string>
+    <string name="addCargo">Add\nCargo</string>
+    <string name="removeCargo">Remove\nCargo</string>
+    <string name="cannon">Cannon</string>
+    <string name="rp">RP</string>
+    <string name="penalties">Penalties</string>
+    <string name="enableDisable">Enable/\nDisable</string>
+    <string name="refID">Referee: Red 1</string>
+</resources>
