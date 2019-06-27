@@ -15,6 +15,7 @@ public class OpeningActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opening);
         ServerReader.init();
+        ServerWriter.init();
     }
 
     public void chooseRef(View view) {

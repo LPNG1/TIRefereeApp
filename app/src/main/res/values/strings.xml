@@ -14,5 +14,6 @@
     <string name="rp">RP</string>
     <string name="penalties">Penalties</string>
     <string name="enableDisable">Enable/\nDisable</string>
-    <string name="refID">Referee: Red 1</string>
+    <string name="refId">Referee: Red 1</string>
+    <string name="addCargoText">Select the cargo type:</string>
 </resources>
