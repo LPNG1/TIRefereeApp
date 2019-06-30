@@ -34,7 +34,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void addCargoPressed(View view) {
-
+        Intent intent = new Intent(getApplicationContext(), AddCargoActivity.class);
+        startActivity(intent);
     }
 
     public void removeCargoPressed(View view) {

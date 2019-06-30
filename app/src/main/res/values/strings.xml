@@ -15,5 +15,11 @@
     <string name="penalties">Penalties</string>
     <string name="enableDisable">Enable/\nDisable</string>
     <string name="refId">Referee: Red 1</string>
-    <string name="addCargoText">Select the cargo type:</string>
+    <string name="addCargoText">Select the cargo to add:</string>
+    <string name="removeCargoText">Select the cargo to remove:</string>
+    <string name="barrel">Barrel</string>
+    <string name="allianceCargo">Alliance Cargo</string>
+    <string name="box">Box</string>
+    <string name="crate">Crate</string>
+    <string name="treasure">Treasure</string>
 </resources>

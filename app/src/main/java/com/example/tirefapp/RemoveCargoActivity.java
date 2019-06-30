@@ -8,83 +8,83 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class AddCargoActivity extends AppCompatActivity {
+public class RemoveCargoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_cargo);
+        setContentView(R.layout.activity_remove_cargo);
     }
 
-    public void addBarrel(View view) {
+    public void removeCargo(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirm Action");
-        builder.setMessage("Please confirm that a Barrel was added");
+        builder.setMessage("Please confirm that a Barrel was removed");
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
                 ServerWriter.getInstance().sendMessage(); //TODO: Change to use JSON
-                Toast.makeText(AddCargoActivity.this, "Barrel added!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RemoveCargoActivity.this, "Barrel removed!", Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("Cancel", null).show();
         this.finish();
     }
 
-    public void addAllianceCargo(View view) {
+    public void removeAllianceCargo(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirm Action");
-        builder.setMessage("Please confirm that an Alliance Cargo was added");
+        builder.setMessage("Please confirm that an Alliance Cargo was removed");
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
                 ServerWriter.getInstance().sendMessage(); //TODO: Change to use JSON
-                Toast.makeText(AddCargoActivity.this, "Alliance Cargo added!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RemoveCargoActivity.this, "Alliance Cargo removed!", Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("Cancel", null).show();
         this.finish();
     }
 
-    public void addBox(View view) {
+    public void removeBox(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirm Action");
-        builder.setMessage("Please confirm that a Box was added");
+        builder.setMessage("Please confirm that a Box was removed");
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
                 ServerWriter.getInstance().sendMessage(); //TODO: Change to use JSON
-                Toast.makeText(AddCargoActivity.this, "Box added!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RemoveCargoActivity.this, "Box removed!", Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("Cancel", null).show();
         this.finish();
     }
 
-    public void addCrate(View view) {
+    public void removeCrate(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirm Action");
-        builder.setMessage("Please confirm that a Crate was added");
+        builder.setMessage("Please confirm that a Crate was removed");
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
                 ServerWriter.getInstance().sendMessage(); //TODO: Change to use JSON
-                Toast.makeText(AddCargoActivity.this, "Crate added!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RemoveCargoActivity.this, "Crate removed!", Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("Cancel", null).show();
         this.finish();
     }
 
-    public void addTreasure(View view) {
+    public void removeTreasure(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirm Action");
-        builder.setMessage("Please confirm that a Treasure was added");
+        builder.setMessage("Please confirm that a Treasure was removed");
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
                 ServerWriter.getInstance().sendMessage(); //TODO: Change to use JSON
-                Toast.makeText(AddCargoActivity.this, "Treasure added!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RemoveCargoActivity.this, "Treasure removed!", Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("Cancel", null).show();
