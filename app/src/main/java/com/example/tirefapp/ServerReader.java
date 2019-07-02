@@ -4,9 +4,9 @@ public class ServerReader extends Thread {
 
     private static ServerReader instance;
 
-    private int anchors;
-    private int[] timeLeft; //timeLeft[0] = Minutes, timeLeft[1] = Seconds
-    private String gameState;
+    private int anchors = 0;
+    private int[] timeLeft = {2, 25}; //timeLeft[0] = Minutes, timeLeft[1] = Seconds
+    private String gameState = "Autonomous";
 
     public static void init() {
         if (instance == null)
@@ -38,6 +38,6 @@ public class ServerReader extends Thread {
     }
 
     public int secondsPassed() {
-        return timeLeft[0]*timeLeft[1] + timeLeft[1];
+        return timeLeft[0]*60 + timeLeft[1];
     }
 }

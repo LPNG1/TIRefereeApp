@@ -13,7 +13,7 @@
     <string name="cannon">Cannon</string>
     <string name="rp">RP</string>
     <string name="penalties">Penalties</string>
-    <string name="enableDisable">Enable/\nDisable</string>
+    <string name="disable">Disable\nRobot</string>
     <string name="refId">Referee: Red 1</string>
     <string name="addCargoText">Select the cargo to add:</string>
     <string name="removeCargoText">Select the cargo to remove:</string>
@@ -22,4 +22,15 @@
     <string name="box">Box</string>
     <string name="crate">Crate</string>
     <string name="treasure">Treasure</string>
+    <string name="rpText">Select the RP type:</string>
+    <string name="autoRP">Autonomous\nRP</string>
+    <string name="cannonRP">Cannon\nRP</string>
+    <string name="penaltyText">Select the penalty type:</string>
+    <string name="penalty">Penalty</string>
+    <string name="foul">Foul</string>
+    <string name="disableText">Select a robot to disable:</string>
+    <string name="redRobot1">Red Robot\n1</string>
+    <string name="redRobot2">Red Robot\n2</string>
+    <string name="blueRobot1">Blue Robot\n1</string>
+    <string name="blueRobot2">Blue Robot\n2</string>
 </resources>

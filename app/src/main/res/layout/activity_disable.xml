@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DisableActivity">
+
+    <TextView
+        android:id="@+id/disableText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="39dp"
+        android:text="@string/disableText"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/redRobot1"
+        android:layout_width="128dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="80dp"
+        android:onClick="disableRed1"
+        android:text="@string/redRobot1"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/disableText" />
+
+    <Button
+        android:id="@+id/blueRobot1"
+        android:layout_width="128dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="80dp"
+        android:onClick="disableBlue1"
+        android:text="@string/blueRobot1"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redRobot1" />
+
+    <Button
+        android:id="@+id/blueRobot2"
+        android:layout_width="128dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="52dp"
+        android:onClick="disableBlue2"
+        android:text="@string/blueRobot2"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redRobot1" />
+
+    <Button
+        android:id="@+id/redRobot2"
+        android:layout_width="128dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="52dp"
+        android:onClick="disableRed2"
+        android:text="@string/redRobot2"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/disableText" />
+</androidx.constraintlayout.widget.ConstraintLayout>

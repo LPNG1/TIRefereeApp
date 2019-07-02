@@ -4,48 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RankingPointActivity">
+    tools:context=".PenaltyActivity">
 
     <Button
-        android:id="@+id/autoRP"
+        android:id="@+id/penalty"
         android:layout_width="128dp"
         android:layout_height="95dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="100dp"
-        android:onClick="addAutoRP"
-        android:text="@string/autoRP"
+        android:onClick="givePenalty"
+        android:text="@string/penalty"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/penaltyText" />
 
     <Button
-        android:id="@+id/cannonRP"
+        android:id="@+id/foul"
         android:layout_width="128dp"
         android:layout_height="95dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="52dp"
-        android:onClick="addCannonRP"
-        android:text="@string/cannonRP"
+        android:onClick="giveFoul"
+        android:text="@string/foul"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/penaltyText" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/penaltyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="81dp"
+        android:layout_marginStart="83dp"
         android:layout_marginTop="176dp"
-        android:layout_marginEnd="80dp"
-        android:text="@string/rpText"
+        android:layout_marginEnd="83dp"
+        android:text="@string/penaltyText"
         android:textColor="@android:color/black"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

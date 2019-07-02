@@ -3,6 +3,7 @@ package com.example.tirefapp;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,24 +13,30 @@ import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
 
-    private TextView gameTime, anchorText, gameStateText;
+    private TextView gameTime, anchorText, gameStateText, refId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        gameTime =  findViewById(R.id.gameTime);
+        gameTime = findViewById(R.id.gameTime);
         anchorText = findViewById(R.id.anchors);
         gameStateText = findViewById(R.id.gameState);
-        run();
+        refId = findViewById(R.id.refId);
     }
 
-    public void run() {
+    @SuppressLint("SetTextI18n")
+    public void updateText() {
         while (ServerReader.getInstance().secondsPassed() <= 210) {
             gameTime.setText("Game Time: " + ServerReader.getInstance().getMinutes() +
                             ":" + ServerReader.getInstance().getSeconds());
+            System.out.println(gameTime.getText());
             anchorText.setText("Anchors: " + ServerReader.getInstance().anchorsRaised() + "/2");
+            System.out.println(anchorText.getText());
             gameStateText.setText(ServerReader.getInstance().getGameState());
+            System.out.println(gameStateText.getText());
+            refId.setText("Referee: " + OpeningActivity.getId());
+            System.out.println(refId.getText());
         }
     }
 
@@ -39,7 +46,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void removeCargoPressed(View view) {
-
+        Intent intent = new Intent(getApplicationContext(), RemoveCargoActivity.class);
+        startActivity(intent);
     }
 
     public void cannonPressed(View view) {
@@ -57,11 +65,13 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void rpPressed(View view) {
-
+        Intent intent = new Intent(getApplicationContext(), RankingPointActivity.class);
+        startActivity(intent);
     }
 
     public void penaltiesPressed(View view) {
-
+        Intent intent = new Intent(getApplicationContext(), PenaltyActivity.class);
+        startActivity(intent);
     }
 
     public void robotStatePressed(View view) {

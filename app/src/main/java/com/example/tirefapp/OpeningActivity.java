@@ -8,7 +8,7 @@ import android.view.View;
 
 public class OpeningActivity extends AppCompatActivity {
 
-    private String id;
+    private static String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +20,13 @@ public class OpeningActivity extends AppCompatActivity {
 
     public void chooseRef(View view) {
         id = view.getTag().toString();
+        System.out.println(id);
         Intent intent = new Intent(getApplicationContext(), GameActivity.class);
         startActivity(intent);
         this.finish();
     }
 
-    public String getId() {
+    public static String getId() {
         return id;
     }
 

@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RankingPointActivity"></activity>
+        <activity android:name=".DisableActivity"></activity>
+        <activity android:name=".PenaltyActivity" />
+        <activity android:name=".RankingPointActivity" />
         <activity android:name=".RemoveCargoActivity" />
         <activity android:name=".AddCargoActivity" />
         <activity android:name=".GameActivity" />
