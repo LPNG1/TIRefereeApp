@@ -11,7 +11,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.MessageFormat;
+
 public class GameActivity extends AppCompatActivity {
+
+    private static GameActivity instance;
 
     private TextView gameTime, anchorText, gameStateText, refId;
 
@@ -23,22 +27,22 @@ public class GameActivity extends AppCompatActivity {
         anchorText = findViewById(R.id.anchors);
         gameStateText = findViewById(R.id.gameState);
         refId = findViewById(R.id.refId);
+
+        refId.setText(MessageFormat.format("Referee:{0}", OpeningActivity.getId()));
+
+        GameUIThread uiThread = new GameUIThread(gameTime, anchorText, gameStateText);
+        uiThread.start();
     }
 
-    @SuppressLint("SetTextI18n")
-    public void updateText() {
-        while (ServerReader.getInstance().secondsPassed() <= 210) {
-            gameTime.setText("Game Time: " + ServerReader.getInstance().getMinutes() +
-                            ":" + ServerReader.getInstance().getSeconds());
-            System.out.println(gameTime.getText());
-            anchorText.setText("Anchors: " + ServerReader.getInstance().anchorsRaised() + "/2");
-            System.out.println(anchorText.getText());
-            gameStateText.setText(ServerReader.getInstance().getGameState());
-            System.out.println(gameStateText.getText());
-            refId.setText("Referee: " + OpeningActivity.getId());
-            System.out.println(refId.getText());
-        }
+    public static void init() {
+        if (instance == null)
+            instance = new GameActivity();
     }
+
+    public static GameActivity getInstance() {
+        return instance;
+    }
+
 
     public void addCargoPressed(View view) {
         Intent intent = new Intent(getApplicationContext(), AddCargoActivity.class);
@@ -75,6 +79,13 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void robotStatePressed(View view) {
+        Intent intent = new Intent(getApplicationContext(), DisableActivity.class);
+        startActivity(intent);
+    }
 
+    public void startPostGame() {
+        Intent intent = new Intent(getApplicationContext(), PostGameActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

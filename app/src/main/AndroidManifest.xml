@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DisableActivity"></activity>
+        <activity android:name=".StackBaseActivity"></activity>
+        <activity android:name=".DeleteStackActivity" />
+        <activity android:name=".PostGameActivity" />
+        <activity android:name=".DisableActivity" />
         <activity android:name=".PenaltyActivity" />
         <activity android:name=".RankingPointActivity" />
         <activity android:name=".RemoveCargoActivity" />

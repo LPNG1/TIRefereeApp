@@ -1,8 +1,15 @@
 package com.example.tirefapp;
 
+import android.util.JsonReader;
+
+import java.io.IOException;
+import java.net.Socket;
+
 public class ServerReader extends Thread {
 
     private static ServerReader instance;
+
+    private JsonReader reader;
 
     private int anchors = 0;
     private int[] timeLeft = {2, 25}; //timeLeft[0] = Minutes, timeLeft[1] = Seconds
@@ -37,7 +44,15 @@ public class ServerReader extends Thread {
         return timeLeft[1];
     }
 
-    public int secondsPassed() {
+    public int getSecondsPassed() {
         return timeLeft[0]*60 + timeLeft[1];
+    }
+
+    public void close() {
+        try {
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

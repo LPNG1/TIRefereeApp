@@ -33,4 +33,7 @@
     <string name="redRobot2">Red Robot\n2</string>
     <string name="blueRobot1">Blue Robot\n1</string>
     <string name="blueRobot2">Blue Robot\n2</string>
+    <string name="newStack">New\nStack</string>
+    <string name="deleteStack">Delete\nStack</string>
+    <string name="endPostRun">End Post Run</string>
 </resources>
