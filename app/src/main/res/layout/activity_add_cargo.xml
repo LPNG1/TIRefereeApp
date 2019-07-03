@@ -7,12 +7,12 @@
     tools:context=".AddCargoActivity">
 
     <TextView
-        android:id="@+id/removeCargoText"
+        android:id="@+id/addCargoText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="120dp"
+        android:layout_marginEnd="119dp"
         android:text="@string/addCargoText"
         android:textColor="@android:color/black"
         android:textSize="18sp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/removeBarrel"
+        android:id="@+id/addBarrel"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -34,10 +34,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/removeCargoText" />
+        app:layout_constraintTop_toBottomOf="@+id/addCargoText" />
 
     <Button
-        android:id="@+id/removeAllianceCargo"
+        android:id="@+id/addAllianceCargo"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginStart="85dp"
@@ -50,10 +50,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/removeBarrel" />
+        app:layout_constraintTop_toBottomOf="@+id/addBarrel" />
 
     <Button
-        android:id="@+id/removeBox"
+        android:id="@+id/addBox"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginStart="85dp"
@@ -66,10 +66,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/removeAllianceCargo" />
+        app:layout_constraintTop_toBottomOf="@+id/addAllianceCargo" />
 
     <Button
-        android:id="@+id/removeCrate"
+        android:id="@+id/addCrate"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -82,10 +82,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/removeBox" />
+        app:layout_constraintTop_toBottomOf="@+id/addBox" />
 
     <Button
-        android:id="@+id/removeTreasure"
+        android:id="@+id/addTreasure"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -98,5 +98,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/removeCrate" />
+        app:layout_constraintTop_toBottomOf="@+id/addCrate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

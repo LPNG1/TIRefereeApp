@@ -15,8 +15,8 @@
     <string name="penalties">Penalties</string>
     <string name="disable">Disable\nRobot</string>
     <string name="refId">Referee: Red 1</string>
-    <string name="addCargoText">Select the cargo to add:</string>
-    <string name="removeCargoText">Select the cargo to remove:</string>
+    <string name="addCargoText">Select a cargo to add:</string>
+    <string name="removeCargoText">Select a cargo to remove:</string>
     <string name="barrel">Barrel</string>
     <string name="allianceCargo">Alliance Cargo</string>
     <string name="box">Box</string>
@@ -25,7 +25,7 @@
     <string name="rpText">Select the RP type:</string>
     <string name="autoRP">Autonomous\nRP</string>
     <string name="cannonRP">Cannon\nRP</string>
-    <string name="penaltyText">Select the penalty type:</string>
+    <string name="penaltyText">Select a penalty type:</string>
     <string name="penalty">Penalty</string>
     <string name="foul">Foul</string>
     <string name="disableText">Select a robot to disable:</string>
@@ -36,4 +36,5 @@
     <string name="newStack">New\nStack</string>
     <string name="deleteStack">Delete\nStack</string>
     <string name="endPostRun">End Post Run</string>
+    <string name="stackBaseText">Select a stack base:</string>
 </resources>

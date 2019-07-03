@@ -1,18 +1,24 @@
 package com.example.tirefapp;
 
-import android.util.JsonWriter;
-
 import java.io.IOException;
+import java.io.PrintStream;
+import java.net.Socket;
 
 public class ServerWriter extends Thread {
 
     private static ServerWriter instance;
 
-    private JsonWriter writer;
+    private Socket socket;
+    private PrintStream printStream;
 
     @Override
     public void run() {
-        super.run();
+        try {
+            socket = new Socket("10.0.0.4", 2630);
+            printStream = new PrintStream(socket.getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void init() {
@@ -26,14 +32,6 @@ public class ServerWriter extends Thread {
 
     public void sendMessage() {
 
-    }
-
-    public void close() {
-        try {
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 }

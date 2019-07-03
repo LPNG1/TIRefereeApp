@@ -1,19 +1,49 @@
 package com.example.tirefapp;
 
-import android.util.JsonReader;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class ServerReader extends Thread {
 
     private static ServerReader instance;
 
-    private JsonReader reader;
+    private Socket socket;
+    private Scanner scanner;
 
     private int anchors = 0;
-    private int[] timeLeft = {2, 25}; //timeLeft[0] = Minutes, timeLeft[1] = Seconds
+    private int gameTime = 180; //timeLeft[0] = Minutes, timeLeft[1] = Seconds
     private String gameState = "Autonomous";
+
+    private JSONObject j;
+
+    @Override
+    public void run() {
+        try {
+            socket = new Socket("10.0.0.4", 5951);
+            scanner = new Scanner(socket.getInputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        while (!this.isInterrupted()) {
+            if(scanner.hasNext()) {
+                try {
+                    j = new JSONObject(scanner.nextLine());
+                    JSONObject gameData = (JSONObject) j.get("game-data");
+                    anchors = gameData.getInt("anchors");
+                    gameTime = gameData.getInt("game-time");
+                    gameState = gameData.getString("game-state");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
     public static void init() {
         if (instance == null)
@@ -32,27 +62,16 @@ public class ServerReader extends Thread {
         return gameState;
     }
 
-    public int[] getTimeLeft() {
-        return timeLeft;
-    }
-
     public int getMinutes() {
-        return timeLeft[0];
+        return gameTime%60;
     }
 
     public int getSeconds() {
-        return timeLeft[1];
+        return gameTime-getMinutes()*60;
     }
 
     public int getSecondsPassed() {
-        return timeLeft[0]*60 + timeLeft[1];
+        return gameTime;
     }
 
-    public void close() {
-        try {
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
