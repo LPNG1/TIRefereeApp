@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.MessageFormat;
 
 public class GameActivity extends AppCompatActivity {
@@ -18,6 +21,8 @@ public class GameActivity extends AppCompatActivity {
     private static GameActivity instance;
 
     private TextView gameTime, anchorText, gameStateText, refId;
+
+    private int cannonsShot = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,13 +64,21 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void cannonPressed(View view) {
+        final JSONObject object = new JSONObject();
+        cannonsShot++;
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirm Action");
         builder.setMessage("Please confirm that the cannon was shot");
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-                ServerWriter.getInstance().sendMessage(); //TODO: Change to use JSON
+                try {
+                    object.put("cannon-id", cannonsShot);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                ServerWriter.getInstance().sendMessage("cannon", object);
                 Toast.makeText(GameActivity.this, "Cannon shot!", Toast.LENGTH_SHORT).show();
             }
         });

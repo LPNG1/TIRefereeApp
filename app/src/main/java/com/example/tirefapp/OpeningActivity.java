@@ -28,4 +28,12 @@ public class OpeningActivity extends AppCompatActivity {
         return id;
     }
 
+    public static String getRefTeam() {
+        return id.split(" ")[0];
+    }
+
+    public static int getRefNumber() {
+        return Integer.parseInt(id.split(" ")[1]);
+    }
+
 }

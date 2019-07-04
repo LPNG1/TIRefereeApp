@@ -1,5 +1,9 @@
 package com.example.tirefapp;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
@@ -11,6 +15,10 @@ public class ServerWriter extends Thread {
     private Socket socket;
     private PrintStream printStream;
 
+    private JSONArray array;
+    private JSONObject refId = new JSONObject(),
+                       event;
+
     @Override
     public void run() {
         try {
@@ -19,6 +27,14 @@ public class ServerWriter extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        try {
+            refId.put("team", OpeningActivity.getRefTeam());
+            refId.put("id", OpeningActivity.getRefNumber());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public static void init() {
@@ -30,8 +46,21 @@ public class ServerWriter extends Thread {
         return instance;
     }
 
-    public void sendMessage() {
+    public void sendMessage(String eventId, JSONObject eventData) {
+        event = new JSONObject();
+        array = new JSONArray();
 
+        try {
+            event.put("event-id", eventId);
+            event.put("event-data", eventData);
+
+            array.put(refId);
+            array.put(event);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        printStream.println(array);
     }
 
 }

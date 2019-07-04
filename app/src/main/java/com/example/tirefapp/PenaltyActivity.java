@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class PenaltyActivity extends AppCompatActivity {
 
     @Override
@@ -17,13 +20,29 @@ public class PenaltyActivity extends AppCompatActivity {
     }
 
     public void givePenalty(View view) {
-        ServerWriter.getInstance().sendMessage(); //TODO: Change to use JSON
+        JSONObject object = new JSONObject();
+
+        try {
+            object.put("penalty-id", "penalty");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        ServerWriter.getInstance().sendMessage("penalty", object);
         Toast.makeText(PenaltyActivity.this, "Penalty given!", Toast.LENGTH_SHORT).show();
         this.finish();
     }
 
     public void giveFoul(View view) {
-        ServerWriter.getInstance().sendMessage(); //TODO: Change to use JSON
+        JSONObject object = new JSONObject();
+
+        try {
+            object.put("penalty-id", "penalty");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        ServerWriter.getInstance().sendMessage("penalty", object);
         Toast.makeText(PenaltyActivity.this, "Foul given!", Toast.LENGTH_SHORT).show();
         this.finish();
     }

@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class DisableActivity extends AppCompatActivity {
 
     Button redRobot1, redRobot2, blueRobot1, blueRobot2;
@@ -34,13 +37,22 @@ public class DisableActivity extends AppCompatActivity {
     }
 
     public void disableRed1(View view) {
+        final JSONObject object = new JSONObject();
+
+        try {
+            object.put("alliance", "red");
+            object.put("robot-id", 1);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirm Action");
         builder.setMessage("Please confirm that you would like to disable this robot");
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-                ServerWriter.getInstance().sendMessage(); //TODO: Change to use JSON
+                ServerWriter.getInstance().sendMessage("disable", object);
                 Toast.makeText(DisableActivity.this, "Robot disabled!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -48,13 +60,22 @@ public class DisableActivity extends AppCompatActivity {
     }
 
     public void disableRed2(View view) {
+        final JSONObject object = new JSONObject();
+
+        try {
+            object.put("alliance", "red");
+            object.put("robot-id", 2);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirm Action");
         builder.setMessage("Please confirm that you would like to disable this robot");
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-                ServerWriter.getInstance().sendMessage(); //TODO: Change to use JSON
+                ServerWriter.getInstance().sendMessage("disable", object);
                 Toast.makeText(DisableActivity.this, "Robot disabled!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -62,13 +83,22 @@ public class DisableActivity extends AppCompatActivity {
     }
 
     public void disableBlue1(View view) {
+        final JSONObject object = new JSONObject();
+
+        try {
+            object.put("alliance", "blue");
+            object.put("robot-id", 1);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirm Action");
         builder.setMessage("Please confirm that you would like to disable this robot");
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-                ServerWriter.getInstance().sendMessage(); //TODO: Change to use JSON
+                ServerWriter.getInstance().sendMessage("disable", object);
                 Toast.makeText(DisableActivity.this, "Robot disabled!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -76,13 +106,22 @@ public class DisableActivity extends AppCompatActivity {
     }
 
     public void disableBlue2(View view) {
+        final JSONObject object = new JSONObject();
+
+        try {
+            object.put("alliance", "blue");
+            object.put("robot-id", 2);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirm Action");
         builder.setMessage("Please confirm that you would like to disable this robot");
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-                ServerWriter.getInstance().sendMessage(); //TODO: Change to use JSON
+                ServerWriter.getInstance().sendMessage("disable", object);
                 Toast.makeText(DisableActivity.this, "Robot disabled!", Toast.LENGTH_SHORT).show();
             }
         });
