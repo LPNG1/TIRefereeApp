@@ -31,6 +31,7 @@ public class GameActivity extends AppCompatActivity {
 
         ServerReader.init();
         ServerWriter.init();
+        GameActivity.init();
 
         gameTime = findViewById(R.id.gameTime);
         anchorText = findViewById(R.id.anchors);

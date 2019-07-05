@@ -19,7 +19,7 @@ public class RemoveCargoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_remove_cargo);
     }
 
-    public void removeCargo(View view) {
+    public void removeBarrel(View view) {
         JSONObject object = new JSONObject();
 
         try {

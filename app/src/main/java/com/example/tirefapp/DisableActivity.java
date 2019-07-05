@@ -40,7 +40,6 @@ public class DisableActivity extends AppCompatActivity {
         final JSONObject object = new JSONObject();
 
         try {
-            object.put("alliance", "red");
             object.put("robot-id", 1);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -63,7 +62,6 @@ public class DisableActivity extends AppCompatActivity {
         final JSONObject object = new JSONObject();
 
         try {
-            object.put("alliance", "red");
             object.put("robot-id", 2);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -86,7 +84,6 @@ public class DisableActivity extends AppCompatActivity {
         final JSONObject object = new JSONObject();
 
         try {
-            object.put("alliance", "blue");
             object.put("robot-id", 1);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -109,7 +106,6 @@ public class DisableActivity extends AppCompatActivity {
         final JSONObject object = new JSONObject();
 
         try {
-            object.put("alliance", "blue");
             object.put("robot-id", 2);
         } catch (JSONException e) {
             e.printStackTrace();

@@ -36,5 +36,11 @@
     <string name="newStack">New\nStack</string>
     <string name="deleteStack">Delete\nStack</string>
     <string name="endPostRun">End Post Run</string>
-    <string name="stackBaseText">Select a stack base:</string>
+    <string name="stackerText">Select a cargo to stack:</string>
+    <string name="endStack">Stop Stacking</string>
+    <string name="stackDisplay">Current Stack:\n</string>
+    <string name="deleteStackText">Select a stack to delete:</string>
+    <string name="displayStack">Display\nStack</string>
+    <string name="endDelete">Stop\nDeleting</string>
+    <string name="selectedStack">Selected Stack:\n</string>
 </resources>
