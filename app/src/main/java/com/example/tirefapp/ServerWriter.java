@@ -15,14 +15,12 @@ public class ServerWriter extends Thread {
     private Socket socket;
     private PrintStream printStream;
 
-    private JSONArray array;
-    private JSONObject refId = new JSONObject(),
-                       event;
+    private JSONObject refId = new JSONObject();
 
     @Override
     public void run() {
         try {
-            socket = new Socket("10.0.0.4", 2630);
+            socket = new Socket("10.100.102.9", 5987);
             printStream = new PrintStream(socket.getOutputStream());
         } catch (IOException e) {
             e.printStackTrace();
@@ -34,7 +32,6 @@ public class ServerWriter extends Thread {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 
     public static void init() {
@@ -47,8 +44,8 @@ public class ServerWriter extends Thread {
     }
 
     public void sendMessage(String eventId, JSONObject eventData) {
-        event = new JSONObject();
-        array = new JSONArray();
+        JSONObject event = new JSONObject();
+        JSONArray array = new JSONArray();
 
         try {
             event.put("event-id", eventId);

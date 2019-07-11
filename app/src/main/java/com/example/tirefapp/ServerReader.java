@@ -16,32 +16,30 @@ public class ServerReader extends Thread {
     private Scanner scanner;
 
     private int anchors = 0;
-    private int gameTime = 180; //timeLeft[0] = Minutes, timeLeft[1] = Seconds
+    private int gameTime = 0;
     private String gameState = "Autonomous";
 
-    private JSONObject j;
 
     @Override
     public void run() {
         try {
-            socket = new Socket("10.0.0.4", 5951);
+            socket = new Socket("10.100.102.9", 5951);
             scanner = new Scanner(socket.getInputStream());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-        while (!this.isInterrupted()) {
-            if(scanner.hasNext()) {
-                try {
-                    j = new JSONObject(scanner.nextLine());
-                    JSONObject gameData = (JSONObject) j.get("game-data");
-                    anchors = gameData.getInt("anchors");
-                    gameTime = gameData.getInt("game-time");
-                    gameState = gameData.getString("game-state");
-                } catch (JSONException e) {
-                    e.printStackTrace();
+            while (!this.isInterrupted()) {
+                if(scanner.hasNext()) {
+                    try {
+                        JSONObject gameData = new JSONObject(scanner.nextLine());
+                        anchors = gameData.getInt("anchors");
+                        gameTime = gameData.getInt("game-time");
+                        gameState = gameData.getString("game-state");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -63,11 +61,11 @@ public class ServerReader extends Thread {
     }
 
     public int getMinutes() {
-        return gameTime%60;
+        return (gameTime - getSeconds())/60;
     }
 
     public int getSeconds() {
-        return gameTime-getMinutes()*60;
+        return gameTime%60;
     }
 
     public int getSecondsPassed() {

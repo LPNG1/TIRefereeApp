@@ -31,26 +31,24 @@ public class GameActivity extends AppCompatActivity {
 
         ServerReader.init();
         ServerWriter.init();
-        GameActivity.init();
 
         gameTime = findViewById(R.id.gameTime);
         anchorText = findViewById(R.id.anchors);
         gameStateText = findViewById(R.id.gameState);
         refId = findViewById(R.id.refId);
 
-        refId.setText(MessageFormat.format("Referee:{0}", OpeningActivity.getId()));
+        refId.setText(MessageFormat.format("Referee: {0}", OpeningActivity.getId()));
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                gameTime.setText(MessageFormat.format("Game Time: {0}:{1}", ServerReader.getInstance().getMinutes(), ServerReader.getInstance().getSeconds()));
+                anchorText.setText(MessageFormat.format("Anchors: {0}/2", ServerReader.getInstance().anchorsRaised()));
+                gameStateText.setText(ServerReader.getInstance().getGameState());
+            }
+        });
 
-        GameUIThread uiThread = new GameUIThread(gameTime, anchorText, gameStateText);
-        uiThread.start();
-    }
-
-    public static void init() {
-        if (instance == null)
-            instance = new GameActivity();
-    }
-
-    public static GameActivity getInstance() {
-        return instance;
+        ServerWriter.getInstance().start();
+        ServerReader.getInstance().start();
     }
 
 
