@@ -10,12 +10,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class PostGameActivity extends AppCompatActivity {
 
     private static PostGameActivity instance;
 
-    private JSONArray stacks = new JSONArray();
-    private JSONObject object = new JSONObject();
+    private ArrayList<ArrayList<String>> stacks = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,26 +45,18 @@ public class PostGameActivity extends AppCompatActivity {
     }
 
     public void endPostGame(View view) {
-        try {
-            object.put("stack", stacks);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        ServerWriter.getInstance().sendMessage("stack", object);
-        ServerWriter.getInstance().interrupt();
-        ServerReader.getInstance().interrupt();
         finish();
     }
 
-    public void addStack(JSONObject stack) {
-        stacks.put(stack);
+    public void addStack(ArrayList stack) {
+        stacks.add(stack);
     }
 
     public int stackCount() {
-        return stacks.length();
+        return stacks.size();
     }
 
-    public JSONArray getStacks() {
+    public ArrayList<ArrayList<String>> getStacks() {
         return stacks;
     }
 

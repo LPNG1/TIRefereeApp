@@ -14,7 +14,6 @@
         <activity android:name=".MainStackerActivity"></activity>
         <activity android:name=".DeleteStackActivity" />
         <activity android:name=".PostGameActivity" />
-        <activity android:name=".DisableActivity" />
         <activity android:name=".PenaltyActivity" />
         <activity android:name=".RankingPointActivity" />
         <activity android:name=".RemoveCargoActivity" />

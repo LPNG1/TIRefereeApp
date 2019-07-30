@@ -13,6 +13,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class DeleteStackActivity extends AppCompatActivity {
 
     EditText stackId;
@@ -27,26 +29,15 @@ public class DeleteStackActivity extends AppCompatActivity {
     }
 
     public void displayStack(View view) {
-        int stackNum = Integer.parseInt(stackId.getText().toString());
+        int stackNum = Integer.parseInt(stackId.getText().toString()) - 1;
 
         stackDisplay.setText("Selected Stack:\n");
 
-        JSONArray cargo = new JSONArray();
+        ArrayList<String> selectedStack = PostGameActivity.getInstance().getStacks().get(stackNum);
 
         try {
-            JSONObject stack = PostGameActivity.getInstance().getStacks().getJSONObject(stackNum);
-            cargo = stack.getJSONArray("cargo");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        try {
-            for (int i = 0; i <= cargo.length(); i++) {
-                try {
-                    JSONObject cargoType = cargo.getJSONObject(i);
-                    stackDisplay.append(cargoType.getString("type") + "\n");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+            for (int i = 0; i <= selectedStack.size(); i++) {
+                stackDisplay.append(selectedStack.get(i));
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             Toast.makeText(DeleteStackActivity.this, "This stack does not exist!", Toast.LENGTH_SHORT).show();

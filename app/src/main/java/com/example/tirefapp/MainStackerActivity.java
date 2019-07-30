@@ -11,17 +11,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class MainStackerActivity extends AppCompatActivity {
 
-    private JSONArray stack;
-
     private TextView stackDisplay;
+
+    private ArrayList<String> stack = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_stacker);
-        stack = new JSONArray();
         stackDisplay = findViewById(R.id.stackDisplay);
     }
 
@@ -48,32 +49,17 @@ public class MainStackerActivity extends AppCompatActivity {
     public void stackTreasure(View view) {
         stackCargo("treasure");
         Toast.makeText(MainStackerActivity.this, "Treasure stacked!", Toast.LENGTH_SHORT).show();
+        PostGameActivity.getInstance().addStack(stack);
+        finish();
     }
 
     public void stackCargo(String cargoType) {
-        JSONObject cargo = new JSONObject();
-        try {
-            cargo.put("id", stack.length());
-            cargo.put("type", cargoType);
-            stack.put(cargo);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
+        stack.add(cargoType);
         stackDisplay.append(cargoType + "\n");
     }
 
     public void stopStack(View view) {
-        JSONObject object = new JSONObject();
-
-        try {
-            object.put("stack-id", PostGameActivity.getInstance().stackCount());
-            object.put("cargo", stack);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        PostGameActivity.getInstance().addStack(object);
+        PostGameActivity.getInstance().addStack(stack);
         finish();
     }
 }
