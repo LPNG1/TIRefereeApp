@@ -6,17 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 public class PostGameActivity extends AppCompatActivity {
 
     private static PostGameActivity instance;
 
-    private ArrayList<ArrayList<String>> stacks = new ArrayList<>();
+    private static ArrayList<ArrayList<String>> stacks = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,15 +41,16 @@ public class PostGameActivity extends AppCompatActivity {
     }
 
     public void endPostGame(View view) {
+        for (ArrayList<String> stack : stacks) {
+            Scorer.getInstance().addStack(stack);
+        }
+        Intent intent = new Intent(getApplicationContext(), RecapActivity.class);
+        startActivity(intent);
         finish();
     }
 
-    public void addStack(ArrayList stack) {
+    public void addStack(ArrayList<String> stack) {
         stacks.add(stack);
-    }
-
-    public int stackCount() {
-        return stacks.size();
     }
 
     public ArrayList<ArrayList<String>> getStacks() {

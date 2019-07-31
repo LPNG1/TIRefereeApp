@@ -43,4 +43,13 @@
     <string name="displayStack">Display\nStack</string>
     <string name="endDelete">Stop\nDeleting</string>
     <string name="selectedStack">Selected Stack:\n</string>
+    <string name="endGame">Confirm</string>
+    <string name="recapText">
+        You were in charge of robot Red 1.\n
+        Your robot scored 0 points during the game.\n
+        Your robot stacked stacks worth 0 points.\n
+        Your robot preformed 0 points of penalties\n that will be awarded to the opposing alliance.\n
+        Your alliance earned 0 RPs.\n
+        Show this to the head referee and confirm.
+    </string>
 </resources>

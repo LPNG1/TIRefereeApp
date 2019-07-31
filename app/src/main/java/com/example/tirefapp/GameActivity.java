@@ -32,10 +32,6 @@ public class GameActivity extends AppCompatActivity {
         new Runnable() {
             @Override
             public void run() {
-                System.out.println("time:" + secondsPassed);
-                System.out.println("points:" + Scorer.getInstance().getPoints());
-                System.out.println("rps:" + Scorer.getInstance().getRp());
-                System.out.println("penalty:" + Scorer.getInstance().getPenaltyPoints());
                 setGameTimeText(secondsPassed / 60, secondsPassed % 60);
                 secondsPassed++;
                 if(secondsPassed <= 210)
@@ -49,7 +45,7 @@ public class GameActivity extends AppCompatActivity {
             public void run() {
                 startPostGame();
             }
-        }, 210000);
+        }, /*21000*/0);
     }
     
     public void addCargoPressed(View view) {

@@ -30,16 +30,16 @@ public class DeleteStackActivity extends AppCompatActivity {
 
     public void displayStack(View view) {
         int stackNum = Integer.parseInt(stackId.getText().toString()) - 1;
+        ArrayList<String> selectedStack;
 
         stackDisplay.setText("Selected Stack:\n");
 
-        ArrayList<String> selectedStack = PostGameActivity.getInstance().getStacks().get(stackNum);
-
         try {
+            selectedStack = PostGameActivity.getInstance().getStacks().get(stackNum);
             for (int i = 0; i <= selectedStack.size(); i++) {
-                stackDisplay.append(selectedStack.get(i));
+                stackDisplay.append(selectedStack.get(i) + "\n");
             }
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException e) {
             Toast.makeText(DeleteStackActivity.this, "This stack does not exist!", Toast.LENGTH_SHORT).show();
         }
     }
